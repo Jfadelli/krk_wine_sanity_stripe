@@ -4,17 +4,21 @@ import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai'
 
 import { Cart } from './';
-import { useStateContext} from '../context/StateContext';
+import { useStateContext } from '../context/StateContext';
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
     <div className="navbar-container">
-      <p className="logo">
-        <Link href="/">KRK Wines San Diego</Link>
-      </p>
-
+      <div className='navbar-button-container'>
+        <div className='navbar-button'>
+          <p className="logo"><Link href="/">KRK Wines San Diego</Link></p>
+        </div>
+        <div className='navbar-button'>
+          <p className="logo"><Link href="/about">About</Link></p>
+        </div>
+      </div>
       <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
         <AiOutlineShopping />
         <span className="cart-item-qty">{totalQuantities}</span>
